@@ -1,1 +1,1 @@
-from . import dashboard, book, history, profile, signup
+# pages/__init__.py
