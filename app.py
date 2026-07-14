@@ -30,11 +30,12 @@ if "user" not in st.session_state:
 sys.path.append(os.path.join(os.path.dirname(__file__), "pages"))
 
 # Importer chaque page
-import dashboard
-import book
-import history
-import profile
-import signup
+# Import des pages depuis le dossier pages
+import pages.dashboard as dashboard
+import pages.book as book
+import pages.history as history
+import pages.profile as profile
+import pages.signup as signup
 
 # ============================================
 # LOGO JETSLOT (dans la sidebar)
