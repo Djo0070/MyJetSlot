@@ -24,6 +24,10 @@ if "user" not in st.session_state:
     st.session_state.user = None
 
 # Import des pages
+import sys
+import os
+sys.path.append(os.path.dirname(__file__))
+
 import pages.dashboard as dashboard
 import pages.book as book
 import pages.history as history
