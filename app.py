@@ -17,22 +17,24 @@ try:
     with open("static/style.css") as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 except:
-    pass  # Si le fichier n'existe pas, on ignore
+    pass
 
 # Initialisation de session
 if "user" not in st.session_state:
     st.session_state.user = None
 
-# Import des pages
-import sys
-import os
-sys.path.append(os.path.dirname(__file__))
+# ============================================
+# IMPORT DES PAGES (AVEC sys.path)
+# ============================================
+# Ajouter le dossier pages au chemin
+sys.path.append(os.path.join(os.path.dirname(__file__), "pages"))
 
-import pages.dashboard as dashboard
-import pages.book as book
-import pages.history as history
-import pages.profile as profile
-import pages.signup as signup
+# Importer chaque page
+import dashboard
+import book
+import history
+import profile
+import signup
 
 # ============================================
 # LOGO JETSLOT (dans la sidebar)
