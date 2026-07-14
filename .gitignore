@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Environment variables (SECRETS !)
+.env
+.env.local
+.env.*.local
+
+# Firebase secrets (TRÈS IMPORTANT !)
+serviceAccountKey.json
+*.json
+*.pem
+*.key
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Streamlit
+.streamlit/
+
+# Logs
+*.log
+logs/
+
+# Database
+*.db
+*.sqlite
