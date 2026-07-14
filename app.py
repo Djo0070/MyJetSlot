@@ -24,7 +24,11 @@ if "user" not in st.session_state:
     st.session_state.user = None
 
 # Import des pages
-from pages import dashboard, book, history, profile, signup
+import pages.dashboard as dashboard
+import pages.book as book
+import pages.history as history
+import pages.profile as profile
+import pages.signup as signup
 
 # ============================================
 # LOGO JETSLOT (dans la sidebar)
