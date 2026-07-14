@@ -1,0 +1,12 @@
+streamlit
+google-generativeai
+python-dotenv
+pillow
+requests
+pyrebase4
+google-cloud-firestore
+google-auth
+pandas
+plotly
+folium
+streamlit-folium
