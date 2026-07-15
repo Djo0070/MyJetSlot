@@ -1,0 +1,45 @@
+/* static/style.css */
+.stApp {
+    background-color: #0A1628;
+}
+
+.stApp h1, .stApp h2, .stApp h3 {
+    color: #FFD700;
+}
+
+.stApp p, .stApp div, .stApp span {
+    color: #B8C6E0;
+}
+
+.stButton button {
+    background-color: #FFD700;
+    color: #0A1628;
+    font-weight: bold;
+    border-radius: 8px;
+    border: none;
+    padding: 10px 20px;
+}
+
+.stButton button:hover {
+    background-color: #F4A460;
+    color: #0A1628;
+}
+
+.stMetric {
+    background-color: #1A2A4A;
+    border-radius: 10px;
+    padding: 15px;
+    border: 1px solid #FFD70033;
+}
+
+.stSuccess {
+    background-color: #1A3A2A;
+}
+
+.stWarning {
+    background-color: #3A3A1A;
+}
+
+.stError {
+    background-color: #3A1A1A;
+}
