@@ -12,12 +12,14 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Charger le CSS
+# Charger le CSS (avec chemin absolu pour Streamlit Cloud)
+import os
 try:
-    with open("static/style.css") as f:
+    css_path = os.path.join(os.path.dirname(__file__), "static", "style.css")
+    with open(css_path) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-except:
-    pass
+except Exception as e:
+    st.warning(f"⚠️ CSS non chargé : {e}")
 
 # Initialisation de session
 if "user" not in st.session_state:
