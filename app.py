@@ -12,18 +12,62 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Charger le CSS (avec chemin absolu pour Streamlit Cloud)
+# Charger le CSS (version Streamlit Cloud)
 import os
-try:
-    css_path = os.path.join(os.path.dirname(__file__), "static", "style.css")
-    with open(css_path) as f:
-        st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
-except Exception as e:
-    st.warning(f"⚠️ CSS non chargé : {e}")
+import streamlit as st
 
-# Initialisation de session
-if "user" not in st.session_state:
-    st.session_state.user = None
+# Méthode 1 : Chercher le CSS dans différents endroits possibles
+css_paths = [
+    os.path.join(os.path.dirname(__file__), "static", "style.css"),
+    "static/style.css",
+    "/mount/src/myjetslot/static/style.css",  # Pour Streamlit Cloud
+]
+
+css_loaded = False
+for css_path in css_paths:
+    try:
+        with open(css_path) as f:
+            st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
+            css_loaded = True
+            break
+    except:
+        continue
+
+if not css_loaded:
+    # Fallback : CSS en dur dans le code
+    st.markdown("""
+    <style>
+        /* Styles par défaut */
+        .stApp {
+            background-color: #0A1628 !important;
+        }
+        .stApp h1, .stApp h2, .stApp h3 {
+            color: #FFD700 !important;
+        }
+        .stApp p, .stApp div, .stApp span {
+            color: #B8C6E0 !important;
+        }
+        .stButton button {
+            background-color: #FFD700 !important;
+            color: #0A1628 !important;
+            font-weight: bold !important;
+        }
+        .stMetric {
+            background-color: #1A2A4A !important;
+            border-radius: 10px !important;
+            padding: 15px !important;
+        }
+        .stSuccess {
+            background-color: #1A3A2A !important;
+        }
+        .stWarning {
+            background-color: #3A3A1A !important;
+        }
+        .stError {
+            background-color: #3A1A1A !important;
+        }
+    </style>
+    """, unsafe_allow_html=True)
 
 # ============================================
 # IMPORT DES PAGES (AVEC sys.path)
